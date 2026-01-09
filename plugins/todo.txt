@@ -11,9 +11,6 @@ NYSTHI                    58494.0 (not opensource?)
 FrozenWasteland           53690.0 (GPL-3.0-only)
 https://github.com/almostEric/FrozenWasteland/
 
-squinkylabs-plug1         48682.0
-https://github.com/squinkylabs/SquinkyVCV
-
 LindenbergResearch        43959.0 (not opensource?)
 
 Geodesics                 42761.0 (GPL-3.0-only)

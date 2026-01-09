@@ -194,6 +194,7 @@ At the moment the following 3rd-party modules are provided:
 - [Starling Via](https://github.com/starlingcode/Via-for-Rack)
 - [Stoermelder Pack-One](https://github.com/stoermelder/vcvrack-packone)
 - [Surge XT](https://github.com/surge-synthesizer/surge-rack)
+- [Squinky Labs](https://github.com/kockie69/SquinkyVCV-main)
 - [unless_modules](https://gitlab.com/unlessgames/unless_modules)
 - [Valley](https://github.com/ValleyAudio/ValleyRackFree)
 - [Venom](https://github.com/DaveBenham/VenomModules)

@@ -1169,6 +1169,11 @@ MINIPLUGIN_FILES += surgext/src/XTStyle.cpp
 MINIPLUGIN_FILES += surgext-helper/surgext-helper.cpp
 
 # --------------------------------------------------------------
+# Squinky Labs
+
+PLUGIN_FILES += $(filter-out SquinkyLabs/src/Squinky.cpp,$(wildcard SquinkyLabs/src/*.cpp))
+
+# --------------------------------------------------------------
 # unless_modules
 
 PLUGIN_FILES += $(filter-out unless_modules/src/unless.cpp,$(wildcard unless_modules/src/*.cpp))
@@ -2800,6 +2805,13 @@ $(BUILD_DIR)/surgext%.cpp.o: surgext%.cpp
 	$(SILENT)$(CXX) $< $(SURGEXT_FLAGS) -c -o $@ \
 		$(foreach m,$(SURGEXT_CUSTOM),$(call custom_module_names,$(m),surgext)) \
 		-DpluginInstance=pluginInstance__surgext
+
+$(BUILD_DIR)/SquinkyLabs/%.cpp.o: SquinkyLabs/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		$(foreach m,$(SQUINKYLABS_CUSTOM),$(call custom_module_names,$(m),SquinkyLabs)) \
+		-DpluginInstance=pluginInstance__SquinkyLabs
 
 $(BUILD_DIR)/unless_modules/%.cpp.o: unless_modules/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"

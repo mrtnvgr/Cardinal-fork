@@ -888,6 +888,9 @@ void StoermelderSettings::readFromJson() {}
 void surgext_rack_initialize();
 void surgext_rack_update_theme();
 
+// Squinky Labs
+#include "SquinkyLabs/src/Squinky.hpp"
+
 // unless_modules
 #include "unless_modules/src/unless.hpp"
 
@@ -1018,6 +1021,7 @@ Plugin* pluginInstance__StarlingVia;
 Plugin* pluginInstance__stocaudio;
 extern Plugin* pluginInstance__stoermelder_p1;
 Plugin* pluginInstance__surgext;
+Plugin* pluginInstance__SquinkyLabs;
 Plugin* pluginInstance__unless_modules;
 Plugin* pluginInstance__ValleyAudio;
 Plugin* pluginInstance__Venom;
@@ -3450,6 +3454,52 @@ static void initStatic__surgext()
     }
 }
 
+static void initStatic__SquinkyLabs()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__SquinkyLabs = p;
+
+    const StaticPluginLoader spl(p, "SquinkyLabs");
+    if (spl.ok())
+    {
+        p->addModel(modelBootyModule);
+        p->addModel(modelCHBModule);
+        p->addModel(modelTremoloModule);
+        p->addModel(modelColoredNoiseModule);
+        p->addModel(modelEV3Module);
+        p->addModel(modelVocalFilterModule);
+        p->addModel(modelFunVModule);
+        p->addModel(modelGrayModule);
+        p->addModel(modelVocalModule);
+        p->addModel(modelLFNModule);
+        p->addModel(modelLFNBModule);
+        p->addModel(modelMix8Module);
+        p->addModel(modelSuperModule);
+        p->addModel(modelShaperModule);
+        // Slade
+        p->addModel(modelSlew4Module);
+        // Stairway
+        p->addModel(modelFiltModule);
+        p->addModel(modelThreadBoostModule);
+        p->addModel(modelCHBgModule);
+        p->addModel(modelBlankModule);
+        p->addModel(modelCH10Module);
+        p->addModel(modelMix4Module);
+        p->addModel(modelMixMModule);
+        p->addModel(modelMixStereoModule);
+        p->addModel(modelDrumTriggerModule);
+        p->addModel(modelSequencer4Module);
+        p->addModel(modelWVCOModule);
+        p->addModel(modelSubModule);
+        p->addModel(modelSinesModule);
+        p->addModel(modelBasicModule);
+        p->addModel(modelF2Module);
+        p->addModel(modelCompressorModule);
+        p->addModel(modelCompressor2Module);
+        p->addModel(modelSampModule);
+    }
+}
+
 static void initStatic__unless_modules()
 {
     Plugin* const p = new Plugin;
@@ -3766,6 +3816,7 @@ void initStaticPlugins()
     initStatic__stocaudio();
     initStatic__stoermelder_p1();
     initStatic__surgext();
+    initStatic__SquinkyLabs();
     initStatic__unless_modules();
     initStatic__ValleyAudio();
     initStatic__Venom();
